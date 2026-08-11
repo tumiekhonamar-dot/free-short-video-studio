@@ -1,6 +1,6 @@
 {
   "studio": {
-    "seoTitle": "Créer des vidéos courtes en ligne gratuitement avec l'IA — FreeShortVideo Studio",
+    "seoTitle": "Générateur de vidéos courtes IA en ligne — FreeShortVideo Studio",
     "seoDescription": "FreeShortVideo Studio : créez des vidéos courtes en ligne gratuitement avec l'IA. Entrez une idée, l'IA la divise en 2-5 scènes, génère les vidéos et les concatène dans le navigateur. Sans installation, sans GPU, sans carte bancaire.",
     "seoH1": "Créer des vidéos courtes en ligne gratuitement avec l'IA — FreeShortVideo Studio",
     "seoIntro": "FreeShortVideo Studio est un générateur de vidéos courtes IA version web : entrez une idée, l'IA la divise automatiquement en 2-5 scènes, génère une vidéo de 5 secondes par scène et les concatène en une vidéo courte complète dans votre navigateur. Entièrement gratuit, sans installation, sans GPU, sans carte bancaire — ajoutez simplement une clé Agnes API gratuite.",
@@ -103,6 +103,9 @@
     "concatWithFailedHint": "Some scenes failed; only completed scenes will be concatenated",
     "retryingHint": "Retry {n} in {s}s",
     "demoLink": "Single-shot text-to-video →",
+    "githubCtaTitle": "Envie de plus ?",
+    "githubCtaText": "Ce Studio web ne couvre que le flux principal. Pour l'ensemble complet de fonctionnalités (voix IA, sous-titres, vidéos longues, etc.), téléchargez la version complète depuis GitHub et exécutez-la en local.",
+    "githubCtaButton": "Voir sur GitHub",
     "logPanel": "Logs",
     "logErrors": "errors",
     "logWarnings": "warnings",

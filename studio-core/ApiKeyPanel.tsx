@@ -51,24 +51,24 @@ export default function ApiKeyPanel({
   }, [apiKey]);
 
   return (
-    <div className="bg-gray-800/40 backdrop-blur-xl border border-gray-700/60 rounded-2xl p-4 sm:p-6">
+    <div className="card-surface rounded-2xl p-4 sm:p-6">
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex items-center justify-between w-full text-start group"
         aria-expanded={expanded}
         aria-controls="apikey-panel-body"
       >
-        <span className="text-sm font-medium text-gray-200 flex items-center gap-2">
-          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <span className="text-sm font-medium text-ink-2 flex items-center gap-2">
+          <svg className="w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
           </svg>
           {t('apiKey.title')}
           {hasKey && (
-            <span className="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse" aria-label={t('apiKey.saved')} />
+            <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse" aria-label={t('apiKey.saved')} />
           )}
         </span>
         <svg
-          className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-muted transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}
           fill="none" viewBox="0 0 24 24" stroke="currentColor"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -87,12 +87,12 @@ export default function ApiKeyPanel({
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={t('apiKey.placeholder')}
-                className="w-full bg-gray-800/80 border border-gray-700 rounded-lg ps-4 pe-10 py-2.5 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500/70 focus:ring-1 focus:ring-blue-500/30 transition"
+                className="w-full bg-paper border border-rule rounded-lg ps-4 pe-10 py-2.5 text-sm text-ink placeholder-muted focus:outline-none focus:border-accent/70 focus:ring-1 focus:ring-accent/30 transition"
                 aria-label={t('apiKey.label')}
               />
               <button
                 onClick={() => setShowKey(!showKey)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-gray-500 hover:text-gray-300 transition rounded"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-muted hover:text-ink-2 transition rounded"
                 aria-label={showKey ? t('apiKey.hide') : t('apiKey.show')}
               >
                 {showKey ? (
@@ -113,33 +113,33 @@ export default function ApiKeyPanel({
             <button
               onClick={() => saveKey(inputValue.trim())}
               disabled={!inputValue.trim()}
-              className="px-4 py-2 text-sm font-medium bg-blue-600 hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg transition-all text-white"
+              className="px-4 py-2 text-sm font-medium bg-accent hover:bg-accent/90 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg transition-all text-accent-ink"
             >
               {t('apiKey.save')}
             </button>
             {hasKey && (
               <button
                 onClick={clearKey}
-                className="px-4 py-2 text-sm text-gray-400 hover:text-red-400 transition"
+                className="px-4 py-2 text-sm text-muted hover:text-red-400 transition"
               >
                 {t('apiKey.clear')}
               </button>
             )}
           </div>
 
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-muted">
             {t('apiKey.hint')}{' '}
             <a
               href="https://platform.agnes-ai.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-400 hover:underline"
+              className="text-accent hover:text-ink transition-colors"
             >
               platform.agnes-ai.com
             </a>
           </p>
 
-          <div className="flex items-start gap-1.5 text-xs text-gray-400 bg-gray-800/50 rounded-lg p-2.5 border border-gray-700/50">
+          <div className="flex items-start gap-1.5 text-xs text-ink-2 bg-paper-3 rounded-lg p-2.5 border border-rule">
             <svg className="w-3.5 h-3.5 mt-px shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>

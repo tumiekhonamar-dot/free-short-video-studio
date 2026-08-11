@@ -45,10 +45,10 @@ export default function IdeaInput({
   const t = useTranslations('studio');
 
   return (
-    <div className="bg-gray-800/40 backdrop-blur-xl border border-gray-700/60 rounded-2xl p-6 sm:p-8 space-y-5">
+    <div className="card-surface rounded-2xl p-6 sm:p-8 space-y-5">
       {/* 创意输入 */}
       <div>
-        <label className="block text-sm font-medium text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-ink-2 mb-2">
           {t('ideaLabel')}
         </label>
         <textarea
@@ -57,15 +57,15 @@ export default function IdeaInput({
           disabled={loading}
           placeholder={t('ideaPlaceholder')}
           rows={4}
-          className="w-full bg-gray-800/80 border border-gray-700 rounded-lg px-4 py-3 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500/70 focus:ring-1 focus:ring-blue-500/30 transition resize-none"
+          className="w-full bg-paper border border-rule rounded-lg px-4 py-3 text-sm text-ink placeholder-muted focus:outline-none focus:border-accent/70 focus:ring-1 focus:ring-accent/30 transition resize-none"
         />
-        <p className="mt-1.5 text-xs text-gray-500">{t('ideaHint')}</p>
+        <p className="mt-1.5 text-xs text-muted">{t('ideaHint')}</p>
       </div>
 
       {/* 场景数 + 画面比例 + 场景时长 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-200 mb-2">
+          <label className="block text-sm font-medium text-ink-2 mb-2">
             {t('sceneCountLabel')}
           </label>
           <div className="flex gap-2">
@@ -76,8 +76,8 @@ export default function IdeaInput({
                 disabled={loading}
                 className={`flex-1 py-2 text-sm rounded-lg border transition ${
                   sceneCount === n
-                    ? 'bg-blue-600/20 border-blue-500/50 text-blue-300'
-                    : 'bg-gray-800/50 border-gray-700/50 text-gray-400 hover:text-gray-200'
+                    ? 'bg-accent/15 border-accent/50 text-accent'
+                    : 'bg-paper border-rule text-muted hover:text-ink-2 hover:bg-paper-3'
                 }`}
               >
                 {n}
@@ -87,7 +87,7 @@ export default function IdeaInput({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-200 mb-2">
+          <label className="block text-sm font-medium text-ink-2 mb-2">
             {t('ratioLabel')}
           </label>
           <div className="flex gap-2">
@@ -98,8 +98,8 @@ export default function IdeaInput({
                 disabled={loading}
                 className={`flex-1 py-2 text-sm rounded-lg border transition ${
                   ratio === opt.value
-                    ? 'bg-blue-600/20 border-blue-500/50 text-blue-300'
-                    : 'bg-gray-800/50 border-gray-700/50 text-gray-400 hover:text-gray-200'
+                    ? 'bg-accent/15 border-accent/50 text-accent'
+                    : 'bg-paper border-rule text-muted hover:text-ink-2 hover:bg-paper-3'
                 }`}
               >
                 {t(opt.labelKey)}
@@ -111,7 +111,7 @@ export default function IdeaInput({
 
       {/* 场景时长 */}
       <div>
-        <label className="block text-sm font-medium text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-ink-2 mb-2">
           {t('durationLabel')}
         </label>
         <div className="flex gap-2">
@@ -122,20 +122,20 @@ export default function IdeaInput({
               disabled={loading}
               className={`flex-1 py-2 text-sm rounded-lg border transition ${
                 duration === opt.value
-                  ? 'bg-blue-600/20 border-blue-500/50 text-blue-300'
-                  : 'bg-gray-800/50 border-gray-700/50 text-gray-400 hover:text-gray-200'
+                  ? 'bg-accent/15 border-accent/50 text-accent'
+                  : 'bg-paper border-rule text-muted hover:text-ink-2 hover:bg-paper-3'
               }`}
             >
               {t(opt.labelKey)}
             </button>
           ))}
         </div>
-        <p className="mt-1.5 text-xs text-gray-500">{t('durationHint')}</p>
+        <p className="mt-1.5 text-xs text-muted">{t('durationHint')}</p>
       </div>
 
       {/* 风格选择 */}
       <div>
-        <label className="block text-sm font-medium text-gray-200 mb-2">
+        <label className="block text-sm font-medium text-ink-2 mb-2">
           {t('styleLabel')}
         </label>
         <div className="flex flex-wrap gap-2">
@@ -146,8 +146,8 @@ export default function IdeaInput({
               disabled={loading}
               className={`px-3 py-1.5 text-sm rounded-lg border transition ${
                 style === s
-                  ? 'bg-amber-500/20 border-amber-500/50 text-amber-300'
-                  : 'bg-gray-800/50 border-gray-700/50 text-gray-400 hover:text-gray-200'
+                  ? 'bg-accent/15 border-accent/50 text-accent'
+                  : 'bg-paper border-rule text-muted hover:text-ink-2 hover:bg-paper-3'
               }`}
             >
               {t(`style_${s}`)}
@@ -163,16 +163,16 @@ export default function IdeaInput({
           checked={enableWatermark}
           onChange={(e) => setEnableWatermark(e.target.checked)}
           disabled={loading}
-          className="w-4 h-4 rounded border-gray-600 bg-gray-800 text-blue-500 focus:ring-blue-500/30"
+          className="w-4 h-4 rounded border-rule bg-paper text-accent focus:ring-accent/30"
         />
-        <span className="text-sm text-gray-300">{t('watermarkOption')}</span>
+        <span className="text-sm text-ink-2">{t('watermarkOption')}</span>
       </label>
 
       {/* 生成按钮 */}
       <button
         onClick={onGenerate}
         disabled={!idea.trim() || loading}
-        className="w-full py-3 text-sm font-medium bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 disabled:opacity-40 disabled:cursor-not-allowed rounded-lg transition-all text-white shadow-lg shadow-blue-600/20"
+        className="btn-primary w-full py-3 text-sm"
       >
         {loading ? (
           <span className="flex items-center justify-center gap-2">
@@ -187,7 +187,7 @@ export default function IdeaInput({
         )}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
+      <p className="text-xs text-muted text-center">
         {t('timeHint')}
       </p>
     </div>

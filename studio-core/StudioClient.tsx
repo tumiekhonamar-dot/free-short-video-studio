@@ -338,10 +338,10 @@ export default function StudioClient() {
   return (
     <div className="space-y-6">
       <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">
           {t('title')}
         </h2>
-        <p className="mt-2 text-gray-400 text-sm">{t('subtitle')}</p>
+        <p className="mt-2 text-muted text-sm">{t('subtitle')}</p>
       </div>
 
       {projects.length > 0 && phase === 'idle' && (
@@ -357,10 +357,10 @@ export default function StudioClient() {
       <ApiKeyPanel apiKey={apiKey} hasKey={hasKey} saveKey={saveKey} clearKey={clearKey} />
 
       {!hasKey ? (
-        <div className="text-center py-12 bg-gray-800/40 backdrop-blur-xl border border-gray-700/60 rounded-2xl">
+        <div className="text-center py-12 card-surface rounded-2xl">
           <div className="text-4xl mb-4">🔑</div>
-          <h3 className="text-lg font-medium text-gray-200 mb-2">{t('apiKeyRequired')}</h3>
-          <p className="text-sm text-gray-400 max-w-sm mx-auto">{t('apiKeyHint')}</p>
+          <h3 className="text-lg font-medium text-ink-2 mb-2">{t('apiKeyRequired')}</h3>
+          <p className="text-sm text-muted max-w-sm mx-auto">{t('apiKeyHint')}</p>
         </div>
       ) : (
         <>
@@ -422,14 +422,14 @@ export default function StudioClient() {
                 {hasFailedScenes && (
                   <button
                     onClick={handleRetryFailed}
-                    className="px-4 py-2 text-sm font-medium bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 rounded-lg transition"
+                    className="px-4 py-2 text-sm font-medium bg-accent/15 hover:bg-accent/25 text-accent border border-accent/30 rounded-lg transition"
                   >
                     {t('retryFailed')}
                   </button>
                 )}
                 <button
                   onClick={handleNewProject}
-                  className="px-4 py-2 text-sm text-gray-400 hover:text-gray-200 bg-gray-800/50 border border-gray-700/50 rounded-lg transition"
+                  className="px-4 py-2 text-sm text-muted hover:text-ink-2 bg-paper-3 border border-rule rounded-lg transition"
                 >
                   {t('reset')}
                 </button>
