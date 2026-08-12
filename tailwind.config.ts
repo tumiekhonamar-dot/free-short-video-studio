@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+/* Hallmark · genre: atmospheric · theme: Midnight · design-system: design.md
+ * 与官网 video-website token 体系一致（studio-core 依赖） */
 const config: Config = {
   content: [
     './app/**/*.{ts,tsx}',
@@ -9,35 +11,36 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Geist', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['Geist Mono', 'ui-monospace', 'monospace'],
+      },
+      colors: {
+        paper: 'var(--color-paper)',
+        'paper-2': 'var(--color-paper-2)',
+        'paper-3': 'var(--color-paper-3)',
+        ink: 'var(--color-ink)',
+        'ink-2': 'var(--color-ink-2)',
+        muted: 'var(--color-muted)',
+        rule: 'var(--color-rule)',
+        accent: 'var(--color-accent)',
+        'accent-ink': 'var(--color-accent-ink)',
+        focus: 'var(--color-focus)',
+        danger: 'var(--color-danger)',
+        success: 'var(--color-success)',
+        warning: 'var(--color-warning)',
       },
       animation: {
-        'gradient': 'gradient 8s ease infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
-        'shimmer': 'shimmer 3s ease-in-out infinite',
+        'fade-in': 'fadeIn 0.42s var(--ease-out) forwards',
+        'fade-in-up': 'fadeInUp 0.6s var(--ease-out) forwards',
       },
       keyframes: {
-        gradient: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
         fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 15px rgba(59,130,246,0.15)' },
-          '50%': { boxShadow: '0 0 30px rgba(59,130,246,0.3)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
         },
       },
     },

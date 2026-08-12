@@ -1,6 +1,7 @@
 'use client';
 
 import StudioClient from '@/studio-core/StudioClient';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const COPY: Record<'zh' | 'en', {
   badge: string;
@@ -41,13 +42,14 @@ export default function StudioLanding({
 
   return (
     <div className="min-h-screen relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-900/95 to-gray-950 pointer-events-none" />
+      {/* 背景微光（atmospheric 允许：单一 accent 极低透明度 radial bloom） */}
+      <div className="absolute inset-0 bloom-accent pointer-events-none" />
 
       {/* 顶栏 */}
       <header className="relative z-20 flex items-center justify-between px-4 sm:px-6 h-16 max-w-5xl mx-auto">
-        <span className="text-base font-bold tracking-tight">
-          <span className="text-white">FreeShortVideo</span>
-          <span className="text-gradient">Studio</span>
+        <span className="text-base font-bold tracking-tight text-ink">
+          <span className="text-ink">FreeShortVideo</span>
+          <span className="text-accent">Studio</span>
         </span>
         <div className="flex items-center gap-1 text-sm">
           {(['zh', 'en'] as const).map((l) => (
@@ -56,25 +58,26 @@ export default function StudioLanding({
               onClick={() => onLocaleChange(l)}
               className={`px-2.5 py-1 rounded-md transition ${
                 locale === l
-                  ? 'bg-white/10 text-white font-medium'
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? 'bg-accent/10 text-accent font-medium border border-accent/20'
+                  : 'text-muted hover:text-ink-2'
               }`}
             >
               {l === 'zh' ? '中文' : 'EN'}
             </button>
           ))}
+          <ThemeToggle locale={locale} className="ms-1" />
         </div>
       </header>
 
       {/* Hero */}
       <main className="relative z-10 px-4 pb-16 pt-8">
         <section className="max-w-3xl lg:max-w-[42rem] mx-auto text-center mb-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-300 mb-5">
-            <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium badge-mono mb-5">
+            <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
             {t.badge}
           </span>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">{t.title}</h1>
-          <p className="mt-4 text-base sm:text-lg text-gray-400 leading-relaxed">{t.subtitle}</p>
+          <h1 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">{t.title}</h1>
+          <p className="mt-4 text-base sm:text-lg text-ink-2 leading-relaxed">{t.subtitle}</p>
         </section>
 
         <div className="max-w-3xl lg:max-w-[42rem] mx-auto">
@@ -82,19 +85,19 @@ export default function StudioLanding({
         </div>
 
         <section className="max-w-3xl lg:max-w-[42rem] mx-auto mt-14 text-center">
-          <p className="text-sm text-gray-500 leading-relaxed">{t.footer}</p>
+          <p className="text-sm text-muted leading-relaxed">{t.footer}</p>
           <a
             href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-3 text-sm text-blue-400 hover:underline"
+            className="inline-block mt-3 text-sm text-accent hover:underline"
           >
             {t.github} ↗
           </a>
         </section>
       </main>
 
-      <footer className="relative z-10 border-t border-white/5 py-6 text-center text-xs text-gray-600">
+      <footer className="relative z-10 border-t border-rule/40 py-6 text-center text-xs text-muted">
         © {new Date().getFullYear()} FreeShortVideoStudio · lcy362
       </footer>
     </div>
