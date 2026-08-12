@@ -7,8 +7,8 @@ import { studioLogger, formatLogTime, type LogEntry, type LogLevel } from '../li
 const LEVEL_CONFIG: Record<LogLevel, { color: string; icon: string; label: string }> = {
   info: { color: 'text-ink-2', icon: '·', label: 'INFO' },
   warn: { color: 'text-accent', icon: '⚠', label: 'WARN' },
-  error: { color: 'text-red-400', icon: '✕', label: 'ERR ' },
-  success: { color: 'text-emerald-400', icon: '✓', label: 'OK  ' },
+  error: { color: 'text-danger', icon: '✕', label: 'ERR ' },
+  success: { color: 'text-success', icon: '✓', label: 'OK  ' },
 };
 
 export default function LogPanel() {
@@ -46,7 +46,7 @@ export default function LogPanel() {
           </svg>
           <span className="text-sm font-medium text-ink-2">{t('logPanel')}</span>
           {errorCount > 0 && (
-            <span className="text-[10px] px-1.5 py-0.5 bg-red-500/20 text-red-400 rounded font-mono">
+            <span className="text-[10px] px-1.5 py-0.5 bg-danger/20 text-danger rounded font-mono">
               {errorCount} {t('logErrors')}
             </span>
           )}

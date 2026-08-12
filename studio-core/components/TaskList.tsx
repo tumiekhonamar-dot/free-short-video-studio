@@ -94,7 +94,7 @@ export default function TaskList({
                 )}
                 <button
                   onClick={() => onDelete(p.id)}
-                  className="text-xs px-2.5 py-1 text-red-400 hover:bg-red-500/10 rounded transition"
+                  className="text-xs px-2.5 py-1 text-danger hover:bg-danger/10 rounded transition"
                 >
                   {t('delete')}
                 </button>

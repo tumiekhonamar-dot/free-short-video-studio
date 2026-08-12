@@ -152,8 +152,8 @@ function SceneCard({ scene }: { scene: Scene }) {
     queued: { label: t('statusQueued'), color: 'text-accent', icon: '◷' },
     submitting: { label: t('statusSubmitting'), color: 'text-accent', icon: '◐' },
     generating: { label: t('statusGenerating'), color: 'text-accent', icon: '◐' },
-    completed: { label: t('statusCompleted'), color: 'text-emerald-400', icon: '●' },
-    error: { label: t('statusError'), color: 'text-red-400', icon: '✕' },
+    completed: { label: t('statusCompleted'), color: 'text-success', icon: '●' },
+    error: { label: t('statusError'), color: 'text-danger', icon: '✕' },
   };
 
   const status = statusConfig[scene.status] || statusConfig.pending;
@@ -210,7 +210,7 @@ function SceneCard({ scene }: { scene: Scene }) {
           )}
 
           {errText && (
-            <p className="text-xs text-red-400/70 mt-1 break-all font-mono">{errText}</p>
+            <p className="text-xs text-danger/70 mt-1 break-all font-mono">{errText}</p>
           )}
           {scene.videoUrl && scene.status === 'completed' && (
             <video

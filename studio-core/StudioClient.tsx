@@ -399,22 +399,22 @@ export default function StudioClient() {
 
           {/* 错误展示（明确报错 + 可操作建议） */}
           {phase === 'error' && errCode && (
-            <div className="p-5 rounded-xl bg-red-500/10 border border-red-500/30">
+            <div className="p-5 rounded-xl bg-danger/10 border border-danger/30">
               <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 text-danger mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-semibold text-red-300">
+                  <p className="text-sm font-semibold text-danger">
                     {t(`errors.${errCode}`)}
                   </p>
                   {hasErrHint && errHintKey && (
-                    <p className="text-xs text-red-400/80 mt-1.5 leading-relaxed">
+                    <p className="text-xs text-danger/80 mt-1.5 leading-relaxed">
                       {t(errHintKey)}
                     </p>
                   )}
                   {hasFailedScenes && phase !== 'error' && (
-                    <p className="text-xs text-amber-400/80 mt-1.5">{t('partialFailedHint')}</p>
+                    <p className="text-xs text-warning/80 mt-1.5">{t('partialFailedHint')}</p>
                   )}
                 </div>
               </div>
@@ -439,12 +439,12 @@ export default function StudioClient() {
 
           {/* 部分失败提示（非 error 阶段） */}
           {phase === 'all_videos_ready' && hasFailedScenes && (
-            <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div className="p-4 rounded-xl bg-warning/10 border border-warning/30">
               <div className="flex items-start gap-2">
-                <svg className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 text-warning mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4a2 2 0 00-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z" />
                 </svg>
-                <p className="text-xs text-amber-300/90 leading-relaxed">{t('partialFailedHint')}</p>
+                <p className="text-xs text-warning/90 leading-relaxed">{t('partialFailedHint')}</p>
               </div>
             </div>
           )}

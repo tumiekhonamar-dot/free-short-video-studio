@@ -23,7 +23,7 @@ export default function VideoPreview({ url, onReset }: Props) {
     <div className="space-y-4">
       <div className="card-surface rounded-2xl p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-4">
-          <span className="w-2 h-2 bg-emerald-400 rounded-full" />
+          <span className="w-2 h-2 bg-success rounded-full" />
           <h3 className="text-base font-semibold text-ink">{t('completedTitle')}</h3>
         </div>
 

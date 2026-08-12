@@ -64,7 +64,7 @@ export default function ApiKeyPanel({
           </svg>
           {t('apiKey.title')}
           {hasKey && (
-            <span className="inline-block w-2 h-2 bg-emerald-400 rounded-full animate-pulse" aria-label={t('apiKey.saved')} />
+            <span className="inline-block w-2 h-2 bg-success rounded-full animate-pulse" aria-label={t('apiKey.saved')} />
           )}
         </span>
         <svg
@@ -120,7 +120,7 @@ export default function ApiKeyPanel({
             {hasKey && (
               <button
                 onClick={clearKey}
-                className="px-4 py-2 text-sm text-muted hover:text-red-400 transition"
+                className="px-4 py-2 text-sm text-muted hover:text-danger transition"
               >
                 {t('apiKey.clear')}
               </button>
