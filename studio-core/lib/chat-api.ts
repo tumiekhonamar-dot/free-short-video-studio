@@ -5,7 +5,8 @@ import { buildSystemPrompt, buildUserPrompt, parseScenesJson } from './prompt-te
 import type { SceneSplitRequest, SceneSplitItem } from '../types';
 
 const CHAT_API_URL = 'https://apihub.agnes-ai.com/v1/chat/completions';
-const CHAT_MODEL = 'agnes-2.0-flash';
+// 文本模型：agnes-2.5-flash（对齐源项目 agnes-video-generator，2026-07 正式上线，无 beta 标记）
+const CHAT_MODEL = 'agnes-2.5-flash';
 
 /**
  * 调用 Agnes Chat API 拆分场景
