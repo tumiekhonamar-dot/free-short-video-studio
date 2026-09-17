@@ -16,10 +16,15 @@ export function useApiKey() {
   }, []);
 
   const saveKey = useCallback((key: string) => {
+  setApiKey(key);
+  setHasKey(!!key);
+
+  try {
     localStorage.setItem(STORAGE_KEY, key);
-    setApiKey(key);
-    setHasKey(!!key);
-  }, []);
+  } catch (error) {
+    console.error('Failed to save API key:', error);
+  }
+}, []);
 
   const clearKey = useCallback(() => {
     localStorage.removeItem(STORAGE_KEY);
